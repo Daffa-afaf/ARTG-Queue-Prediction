@@ -30,14 +30,14 @@ graph TD
     P --> Q[best_model_2_bulan.pkl]
     P --> R[label_encoders_2_bulan.pkl]
     P --> S[features_list_2_bulan.pkl]
-    P --> T[lookup_tables_2bulan.pkl]
+    P --> T[lookup_tables_2buban.pkl]
     P --> U[model_metadata_2_bulan.json]
     
     E --> V[generate_lookups.py]
     V --> T
     
-    style M fill:#90EE90
-    style O fill:#FFD700
+    style M fill:#FF69B4
+    style O fill:#FF8C00
 ```
 
 ## 🏗️ System Architecture Flow
@@ -65,9 +65,9 @@ graph LR
     C --> J[(Label Encoders)]
     C --> K[(Queue Cache<br/>TTL 60s)]
     
-    style F fill:#87CEEB
-    style G fill:#90EE90
-    style H fill:#FFD700
+    style F fill:#9370DB
+    style G fill:#FF69B4
+    style H fill:#FF8C00
 ```
 
 ## 🔄 Real-Time Prediction Flow
@@ -130,8 +130,8 @@ graph TD
     O --> P[ML Model Input]
     P --> Q[Prediction Output]
     
-    style N fill:#90EE90
-    style Q fill:#FFD700
+    style N fill:#FF69B4
+    style Q fill:#FF8C00
 ```
 
 ## 🎯 Feature Importance Breakdown
@@ -158,8 +158,8 @@ graph LR
     E --> E1[congestion_count: 6.4%]
     E --> E2[hourly_volume: 5.6%]
     
-    style B fill:#FFD700
-    style C fill:#87CEEB
+    style B fill:#FF8C00
+    style C fill:#9370DB
 ```
 
 ## 🔄 Development Workflow
@@ -187,8 +187,8 @@ graph TD
     
     B -->|No| O[Continue with<br/>Current Model]
     
-    style J fill:#90EE90
-    style O fill:#FFD700
+    style J fill:#FF69B4
+    style O fill:#FF8C00
 ```
 
 ## 🛡️ Data Validation Flow
@@ -218,9 +218,9 @@ graph TD
     K --> L[ML Prediction]
     L --> M[Add to Queue]
     
-    style G fill:#90EE90
-    style J fill:#90EE90
-    style M fill:#FFD700
+    style G fill:#FF69B4
+    style J fill:#FF69B4
+    style M fill:#FF8C00
     style Z1 fill:#FF6B6B
     style Z2 fill:#FF6B6B
     style Z3 fill:#FFA500
@@ -228,21 +228,64 @@ graph TD
 
 ---
 
-## 📈 Model Performance Evolution
+## 🎯 Application Modes (Same Model, Different Input)
 
+```mermaid
+graph LR
+    A[Stacking Ensemble Model<br/>MAE: 6.25 min<br/>45 Features] --> B[Batch Mode]
+    A --> C[Real-Time Mode]
+    
+    B --> B1[Manual Input Form]
+    B1 --> B2[Use: Offline Testing]
+    B2 --> B3[No WiFi Required]
+    B3 --> D[Prediction Result]
+    
+    C --> C1[WebSocket Feed]
+    C1 --> C2[Use: Live Monitoring]
+    C2 --> C3[WiFi 10.130.0.176]
+    C3 --> D
+    
+    style A fill:#9370DB
+    style B fill:#FF69B4
+    style C fill:#FF8C00
+    style D fill:#FF6B6B
 ```
-Version 1.0              Version 2.0
-┌──────────────┐        ┌──────────────┐
-│ Random Forest│   →    │   Stacking   │
-│  MAE: 7.2    │        │  MAE: 6.25   │
-│  R²:  0.68   │        │  R²:  0.726  │
-│  42 features │        │  45 features │
-└──────────────┘        └──────────────┘
-       ↓                        ↓
-   Improvement: 51.2% error reduction
-```
+
+**Key Point**: Both modes use the **identical Stacking Ensemble model** with 45 features. The only difference is the input source (manual vs automatic).
+
+### Batch Mode
+- **Purpose**: Manual truck entry for validation and offline testing
+- **Input**: Form (block, slot, row, tier, job type, container size, status)
+- **Use Case**: Compare predictions with historical data without company WiFi
+- **Benefit**: Test model accuracy anytime, anywhere
+
+### Real-Time Mode
+- **Purpose**: Automatic processing from company database
+- **Input**: WebSocket stream from 10.130.0.176 (GATE_IN events)
+- **Use Case**: Live queue monitoring in production environment
+- **Benefit**: Automatic predictions for every truck entering terminal
 
 ---
 
-**Last Updated:** 2026-01-28  
-**Maintained By:** [Nama Mahasiswa Magang]
+## 📊 Model Comparison During Training
+
+During the modeling phase, 7 algorithms were compared. Only the **Stacking Ensemble** was deployed to production.
+
+```
+┌─────────────────────┬──────────┬────────────┐
+│ Algorithm           │ MAE      │ Status     │
+├─────────────────────┼──────────┼────────────┤
+│ Stacking Ensemble ⭐│ 6.25 min │ DEPLOYED   │
+│ LightGBM            │ 6.31 min │ Comparison │
+│ Voting Ensemble     │ 6.34 min │ Comparison │
+│ CatBoost            │ 6.38 min │ Comparison │
+│ XGBoost             │ 6.45 min │ Comparison │
+│ Gradient Boosting   │ 6.72 min │ Comparison │
+│ Random Forest       │ 6.89 min │ Comparison │
+└─────────────────────┴──────────┴────────────┘
+
+✅ Production Model: Stacking Ensemble only
+📊 Training Data: 96,000 records × 45 features
+```
+
+---
