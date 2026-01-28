@@ -1,4 +1,4 @@
-# 📡 API Documentation
+#  API Documentation
 
 ## Base URL
 ```
@@ -8,7 +8,7 @@ Development: http://localhost:5000
 
 ---
 
-## 🔍 REST API Endpoints
+##  REST API Endpoints
 
 ### 1. Health Check
 
@@ -278,7 +278,7 @@ HTTP Status: `404`
 
 ---
 
-## 📡 WebSocket Events
+##  WebSocket Events
 
 ### Connection
 
@@ -453,7 +453,7 @@ socket.on('QUEUE_UPDATE', (data) => {
 
 ---
 
-## 🔐 Error Codes
+## Error Codes
 
 | HTTP Code | Description |
 |-----------|-------------|
@@ -495,7 +495,7 @@ socket.on('QUEUE_UPDATE', (data) => {
 
 ---
 
-## 📊 Data Models
+## Data Models
 
 ### Truck Object
 ```typescript
@@ -536,7 +536,7 @@ interface Statistics {
 
 ---
 
-## 🧪 Testing Examples
+## Testing Examples
 
 ### cURL Examples
 
@@ -639,7 +639,7 @@ fetch('http://localhost:5000/blocks/1/add_truck', {
 
 ---
 
-## 📝 Notes
+## Notes
 
 ### Field Mappings
 
@@ -674,7 +674,3 @@ No rate limiting currently implemented. For production, consider:
 - Max 1000 WebSocket messages/minute per connection
 
 ---
-
-**Last Updated:** 2026-01-28  
-**API Version:** 2.0  
-**Maintained By:** [Nama Mahasiswa Magang]
