@@ -36,9 +36,19 @@ Thumbs.db
 # Models backup (keep latest only)
 models_backup/
 
-# Jupyter
+# Large model files (exceeds GitHub limits)
+*.pkl
+models/*.pkl
+best_model*.pkl
+all_models*.pkl
+feature_scaler*.pkl
+
+# Node modules cache (too large)
+artg-dashboard/node_modules/.cache/
+node_modules/.cache/
+
+# Jupyter (keep notebooks but not checkpoints)
 .ipynb_checkpoints/
-*.ipynb
 
 # Logs
 logs/
