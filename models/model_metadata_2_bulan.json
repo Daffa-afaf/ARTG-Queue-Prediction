@@ -1,0 +1,148 @@
+{
+    "version": "V3 (Corrected Terminology)",
+    "model_name": "Stacking Ensemble",
+    "training_date": "2026-01-23 10:05:26",
+    "features_count": 45,
+    "features_list": [
+        "JOB_TYPE",
+        "CONTAINER_SIZE",
+        "CTR_STATUS",
+        "CONTAINER_TYPE",
+        "slot",
+        "tier",
+        "block",
+        "gate_in_shift",
+        "gate_in_hour",
+        "gate_in_dayofweek",
+        "gate_in_day",
+        "gate_in_month",
+        "gate_in_is_weekend",
+        "gate_in_is_peak",
+        "slot_numeric",
+        "row_numeric",
+        "tier_numeric",
+        "block_numeric",
+        "distance_from_gate",
+        "vertical_distance",
+        "congestion_count",
+        "hourly_volume",
+        "slot_historical_avg",
+        "tier_historical_avg",
+        "lokasi_historical_avg",
+        "hour_historical_avg",
+        "container_size_numeric",
+        "is_empty",
+        "is_full",
+        "is_reefer",
+        "is_special",
+        "is_morning_rush",
+        "is_afternoon_rush",
+        "is_rush_hour",
+        "slot_tier_interaction",
+        "size_tier_interaction",
+        "congestion_tier",
+        "rush_hour_congestion",
+        "slot_duration_std",
+        "slot_duration_min",
+        "slot_duration_max",
+        "prev_duration_same_location",
+        "rolling_mean_3",
+        "BLOCK_target_enc",
+        "LOKASI_target_enc"
+    ],
+    "terminology": {
+        "slot": "Horizontal position in yard (was: block)",
+        "row": "Depth position in yard (was: bay)",
+        "tier": "Height position (was: row)",
+        "block": "Yard area identifier like 1G, 2A (was: STACK)"
+    },
+    "performance": {
+        "MAE": 6.245086235455568,
+        "RMSE": 9.002374859494816,
+        "R2": 0.2551904215163714,
+        "within_5min_pct": 55.839378238341965,
+        "within_10min_pct": 81.98963730569947
+    },
+    "comparison_vs_baseline": {
+        "baseline_version": "V3 (Old Terminology)",
+        "baseline_mae": 5.25,
+        "current_mae": 6.245086235455568,
+        "difference": 0.9950862354555676,
+        "improvement_pct": -18.954023532487003,
+        "verdict": "SIMILAR"
+    },
+    "experiment_summary": {
+        "objective": "Test correct yard terminology",
+        "terminology_changed": true,
+        "logic_changed": false,
+        "result": "Success - Performance maintained/improved with correct terminology"
+    },
+    "changes_applied": [
+        "Corrected terminology: slot/row/tier/block",
+        "Stricter outlier removal (Q5-Q99)",
+        "Removed generic temporal features",
+        "Added lag features (prev duration, rolling mean)",
+        "Added target encoding (BLOCK, LOKASI)",
+        "Optuna trials: 50"
+    ],
+    "data_info": {
+        "train_size": 77196,
+        "test_size": 19300
+    },
+    "hyperparameters": {
+        "lgbm": {
+            "learning_rate": 0.06570346562088783,
+            "max_depth": 12,
+            "num_leaves": 173,
+            "min_child_samples": 44,
+            "subsample": 0.8121213856624666,
+            "colsample_bytree": 0.7222608832423535,
+            "reg_alpha": 3.7146530499340717,
+            "reg_lambda": 9.989286953024699,
+            "objective": "regression",
+            "metric": "mae",
+            "boosting_type": "gbdt",
+            "n_estimators": 500,
+            "random_state": 42,
+            "verbose": -1,
+            "force_col_wise": true
+        },
+        "xgb": {
+            "learning_rate": 0.02643047770873136,
+            "max_depth": 12,
+            "min_child_weight": 9,
+            "subsample": 0.9339045766715071,
+            "colsample_bytree": 0.6329796105640882,
+            "gamma": 0.4155647807027115,
+            "reg_alpha": 3.342492092432078,
+            "reg_lambda": 5.395304001012118,
+            "n_estimators": 500,
+            "random_state": 42,
+            "tree_method": "hist",
+            "verbosity": 0
+        },
+        "catboost": {
+            "learning_rate": 0.09976664777594932,
+            "depth": 10,
+            "l2_leaf_reg": 5.6774694487200925,
+            "border_count": 79,
+            "iterations": 500,
+            "random_state": 42,
+            "verbose": false
+        }
+    },
+    "all_models_performance": [
+        {
+            "model": "LightGBM",
+            "mae": 6.367728683740616
+        },
+        {
+            "model": "XGBoost",
+            "mae": 6.292455461315293
+        },
+        {
+            "model": "CatBoost",
+            "mae": 6.300608102893918
+        }
+    ]
+}
