@@ -1,10 +1,10 @@
 # Contributing Guidelines
 
-## 📋 Untuk Developer Internal
+##  Untuk Developer Internal
 
 Terima kasih telah berkontribusi pada ARTG Queue Prediction System!
 
-### 🔧 Development Setup
+### Development Setup
 
 1. **Fork & Clone**
    ```bash
@@ -29,7 +29,7 @@ Terima kasih telah berkontribusi pada ARTG Queue Prediction System!
    git checkout -b fix/bug-description
    ```
 
-### 📝 Coding Standards
+### Coding Standards
 
 #### Python (Backend)
 - Follow PEP 8 style guide
@@ -64,7 +64,7 @@ const RealTimeQueue = () => {
 };
 ```
 
-### 🧪 Testing
+### Testing
 
 Before submitting PR:
 
@@ -87,7 +87,7 @@ Before submitting PR:
    - Verify prediction < 100ms
    - Check accuracy within expected range
 
-### 📊 Model Updates
+### Model Updates
 
 Jika update model:
 
@@ -108,7 +108,7 @@ Jika update model:
    - Pastikan features order sama
    - Test dengan old data format
 
-### 🔍 Pull Request Process
+### Pull Request Process
 
 1. **Update dokumentasi** jika perlu
 2. **Add/update tests** untuk perubahan Anda
@@ -130,7 +130,7 @@ Jika update model:
    - [ ] Model backward compatible
    ```
 
-### 🚀 Release Process
+### Release Process
 
 1. Update version di:
    - `README.md`
@@ -147,4 +147,4 @@ Jika update model:
 
 ### ❓ Questions?
 
-Contact maintainer: [email Anda]
+Contact maintainer: [daffaafaffirmansyah@gmail.com]
