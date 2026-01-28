@@ -1,4 +1,4 @@
-# 🚢 ARTG Truck Queue Prediction System
+# ARTG Truck Queue Prediction System
 **Real-Time Queue Management & Duration Prediction for Port Container Yard**
 
 [![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/)
@@ -7,17 +7,17 @@
 
 ---
 
-## 📋 Deskripsi Project
+## Deskripsi Project
 
 Sistem prediksi dan manajemen antrian truk real-time untuk operasional **ARTG (Automated Rail Mounted Gantry)** di pelabuhan. Project ini mengintegrasikan **Machine Learning** dengan **WebSocket real-time streaming** untuk memprediksi durasi pemrosesan truk kontainer dari gate-in hingga stack.
 
-### 🎯 Tujuan Bisnis
-- ✅ Memprediksi waktu tunggu truk secara akurat (target: MAE < 7 menit)
-- ✅ Optimasi alokasi sumber daya berdasarkan prediksi antrian
-- ✅ Monitoring real-time untuk 7 blok container yard (CY1-CY6, D1)
-- ✅ Meningkatkan efisiensi operasional pelabuhan
+### Tujuan Bisnis
+-  Memprediksi waktu tunggu truk secara akurat (target: MAE < 7 menit)
+-  Optimasi alokasi sumber daya berdasarkan prediksi antrian
+-  Monitoring real-time untuk 7 blok container yard (CY1-CY6, D1)
+-  Meningkatkan efisiensi operasional pelabuhan
 
-### ⚡ Key Features
+### Key Features
 - **Real-time WebSocket Integration** - Data streaming langsung dari server eksternal
 - **ML Ensemble Model** - Stacking (LightGBM + XGBoost + CatBoost + Ridge)
 - **45 Engineered Features** - Temporal, spatial, congestion, historical patterns
@@ -27,7 +27,7 @@ Sistem prediksi dan manajemen antrian truk real-time untuk operasional **ARTG (A
 
 ---
 
-## 🏗️ Arsitektur Sistem
+## Arsitektur Sistem
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
@@ -71,9 +71,9 @@ Sistem prediksi dan manajemen antrian truk real-time untuk operasional **ARTG (A
 
 ---
 
-## 📊 Machine Learning Pipeline
+## Machine Learning Pipeline
 
-### **1️⃣ Data Cleaning** (`cleaning_raw_data2bulan_NEW.ipynb`)
+### **1️ Data Cleaning** (`cleaning_raw_data2bulan_NEW.ipynb`)
 
 **Input:** `gatein_out_2bulan.csv` (raw data 2 bulan)  
 **Output:** `dataset_rapi_2bulan.csv` (105,995 records)
@@ -97,7 +97,7 @@ Raw Data (150k+ records)
 
 ---
 
-### **2️⃣ EDA & Feature Engineering** (`eda_feature_engineering2bulan.ipynb`)
+### **2️ EDA & Feature Engineering** (`eda_feature_engineering2bulan.ipynb`)
 
 **Input:** `dataset_rapi_2bulan.csv`  
 **Output:** `dataset_final2bulan_45FEATURES_PROPER.csv` (96,000 records)
@@ -163,7 +163,7 @@ Cleaned Data (105k records)
 
 ---
 
-### **3️⃣ Model Training & Tuning** (`modeling_45features_PROPER_FIXED.ipynb`)
+### **3️ Model Training & Tuning** (`modeling_45features_PROPER_FIXED.ipynb`)
 
 **Input:** `dataset_final2bulan_45FEATURES_PROPER.csv`  
 **Output:** `best_model_2_bulan.pkl` + encoders + lookup tables
@@ -205,14 +205,7 @@ Cleaned Data (105k records)
      - 58% predictions within 5 minutes error
 ```
 
-**Perbandingan dengan Baseline:**
-- **Baseline (Mean Prediction):** MAE = 12.81 minutes
-- **Stacking Ensemble:** MAE = 6.25 minutes
-- **Improvement:** **51.2% error reduction** 🎯
-
----
-
-### **4️⃣ Lookup Tables Generation** (`generate_lookups.py`)
+### **4️ Lookup Tables Generation** (`generate_lookups.py`)
 
 **Purpose:** Create pre-computed lookup tables untuk real-time inference
 
@@ -244,13 +237,13 @@ lookup_tables = {
 ```
 
 **Kegunaan:**
-- ⚡ **Fast inference** - no need to recompute aggregations
-- 🔒 **Consistency** - same features training vs production
-- 📊 **Historical context** - past patterns influence predictions
+- **Inferensi cepat** - tidak perlu menghitung ulang agregasi
+- **Konsistensi** - fitur yang sama digunakan untuk pelatihan dan produksi
+- **Konteks historis** - pola masa lalu memengaruhi prediksi
 
 ---
 
-## 🚀 Installation & Setup
+## Installation & Setup
 
 ### **Prerequisites**
 ```bash
@@ -287,7 +280,7 @@ python generate_lookups.py
 python App.py
 ```
 
-Backend runs on: `http://localhost:5000`
+Backend berjalan pada: `http://localhost:5000`
 
 ### Frontend Setup
 
@@ -303,11 +296,10 @@ npm start
 
 Frontend runs on: `http://localhost:3000`
 
-## 📥 Model Files
+## Model Files
 
-**Note:** Pre-trained model files are too large for GitHub. Download from:
-- [GitHub Releases](https://github.com/Daffa-afaf/ARTG-Queue-Prediction/releases) (recommended)
-- or Google Drive link (ask maintainer)
+**Note:** File model yang sudah dilatih sebelumnya terlalu besar untuk GitHub. Unduh dari:
+- [GitHub Releases](https://github.com/Daffa-afaf/ARTG-Queue-Prediction/releases) 
 
 Extract to `models/` folder:
 ```
@@ -321,7 +313,7 @@ models/
 └── model_metadata_2_bulan.json
 ```
 
-## 🚀 Usage
+## Usage
 
 ### 1. Start Backend
 ```bash
@@ -350,7 +342,7 @@ npm start
 - Trucks appear automatically as they gate-in
 - Predictions update in real-time
 
-## 📊 Model Performance
+## Model Performance
 
 - **MAE:** 6.25 minutes
 - **R² Score:** 0.26
@@ -369,7 +361,7 @@ npm start
 7. **Statistics:** std, min, max per slot
 8. **Lag Features:** previous_duration, rolling_mean
 
-## 📝 Project Structure
+## Project Structure
 
 ```
 ARTG-Queue-Prediction/
@@ -391,7 +383,7 @@ ARTG-Queue-Prediction/
 └── README.md
 ```
 
-## 🔧 Configuration
+## Configuration
 
 ### Backend (App.py)
 ```python
@@ -407,7 +399,7 @@ const flaskUrl = 'http://10.5.11.242:5000'     // Flask backend
 
 Update these URLs if running on different servers.
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 **1. Connection Error to Flask Backend**
 - Ensure `App.py` is running
@@ -429,7 +421,7 @@ Update these URLs if running on different servers.
 - Verify truck data has all required fields (slot, row, tier)
 - Ensure block-stack validation passes
 
-## 📚 API Endpoints
+## API Endpoints
 
 ### REST
 - `GET /blocks` - Get all blocks queue
@@ -445,17 +437,9 @@ Update these URLs if running on different servers.
 - `PREDICTION_ERROR` - Error notification
 - `PREDICTION_REJECTED` - Validation rejected
 
-## 👥 Contributors
+## Contributors
 
 - Daffa (Development & ML)
-
-## 📄 License
-
-Internal project for PELINDO III - ARTG Terminal
-
-## 📞 Support
-
-For issues or questions, contact the development team.
 
 ---
 
