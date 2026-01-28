@@ -1,6 +1,6 @@
-# 📊 Project Flowchart & Architecture
+# Project Flowchart & Architecture
 
-## 📈 Machine Learning Development Flow
+## Machine Learning Development Flow
 
 ```mermaid
 graph TD
@@ -40,7 +40,7 @@ graph TD
     style O fill:#FF8C00
 ```
 
-## 🏗️ System Architecture Flow
+## System Architecture Flow
 
 ```mermaid
 graph LR
@@ -70,7 +70,7 @@ graph LR
     style H fill:#FF8C00
 ```
 
-## 🔄 Real-Time Prediction Flow
+## Real-Time Prediction Flow
 
 ```mermaid
 sequenceDiagram
@@ -105,7 +105,7 @@ sequenceDiagram
     end
 ```
 
-## 📊 Data Transformation Pipeline
+## Data Transformation Pipeline
 
 ```mermaid
 graph TD
@@ -134,7 +134,7 @@ graph TD
     style Q fill:#FF8C00
 ```
 
-## 🎯 Feature Importance Breakdown
+## Feature Importance Breakdown
 
 ```mermaid
 graph LR
@@ -162,7 +162,7 @@ graph LR
     style C fill:#9370DB
 ```
 
-## 🔄 Development Workflow
+## Development Workflow
 
 ```mermaid
 graph TD
@@ -191,7 +191,7 @@ graph TD
     style O fill:#FF8C00
 ```
 
-## 🛡️ Data Validation Flow
+## Data Validation Flow
 
 ```mermaid
 graph TD
@@ -228,7 +228,7 @@ graph TD
 
 ---
 
-## 🎯 Application Modes (Same Model, Different Input)
+## Application Modes (Same Model, Different Input)
 
 ```mermaid
 graph LR
@@ -267,7 +267,7 @@ graph LR
 
 ---
 
-## 📊 Model Comparison During Training
+## Model Comparison During Training
 
 During the modeling phase, 7 algorithms were compared. Only the **Stacking Ensemble** was deployed to production.
 
