@@ -237,9 +237,9 @@ lookup_tables = {
 ```
 
 **Kegunaan:**
--  **Fast inference** - no need to recompute aggregations
--  **Consistency** - same features training vs production
--  **Historical context** - past patterns influence predictions
+- **Inferensi cepat** - tidak perlu menghitung ulang agregasi
+- **Konsistensi** - fitur yang sama digunakan untuk pelatihan dan produksi
+- **Konteks historis** - pola masa lalu memengaruhi prediksi
 
 ---
 
@@ -280,7 +280,7 @@ python generate_lookups.py
 python App.py
 ```
 
-Backend runs on: `http://localhost:5000`
+Backend berjalan pada: `http://localhost:5000`
 
 ### Frontend Setup
 
@@ -298,7 +298,7 @@ Frontend runs on: `http://localhost:3000`
 
 ## Model Files
 
-**Note:** Pre-trained model files are too large for GitHub. Download from:
+**Note:** File model yang sudah dilatih sebelumnya terlalu besar untuk GitHub. Unduh dari:
 - [GitHub Releases](https://github.com/Daffa-afaf/ARTG-Queue-Prediction/releases) 
 
 Extract to `models/` folder:
@@ -440,8 +440,6 @@ Update these URLs if running on different servers.
 ## Contributors
 
 - Daffa (Development & ML)
-
-For issues or questions, contact the development team.
 
 ---
 
