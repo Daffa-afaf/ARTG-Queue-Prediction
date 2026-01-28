@@ -6,7 +6,7 @@ dan target encoding yang akan dipakai di production (Flask API).
 
 CRITICAL: Lookup tables HARUS di-generate dari DATASET YANG SAMA dengan yang dipakai training!
 
-Input:  Data/processed/dataset_final2bulan_42FEATURES_PROPER.csv
+Input:  Data/processed/dataset_final2bulan_45FEATURES_PROPER.csv
 Output: models/lookup_tables_2bulan.pkl (semua lookup tables dalam 1 file)
 """
 
