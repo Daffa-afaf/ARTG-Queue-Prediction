@@ -1,10 +1,10 @@
-# 🚀 Deployment Guide
+# Deployment Guide
 
 Panduan lengkap untuk deploy ARTG Queue Prediction System ke production environment.
 
 ---
 
-## 📋 Pre-Deployment Checklist
+## Pre-Deployment Checklist
 
 - [ ] Model files sudah di-train dan di-test
 - [ ] All tests passing (backend & frontend)
@@ -16,7 +16,7 @@ Panduan lengkap untuk deploy ARTG Queue Prediction System ke production environm
 
 ---
 
-## 🖥️ Server Requirements
+## Server Requirements
 
 ### Minimum Specifications
 
@@ -39,7 +39,7 @@ Panduan lengkap untuk deploy ARTG Queue Prediction System ke production environm
 
 ---
 
-## 🔧 Production Setup
+## Production Setup
 
 ### Option 1: Linux Server (Ubuntu)
 
@@ -293,7 +293,7 @@ npm run build
 
 ---
 
-## 🔒 Security Hardening
+## Security Hardening
 
 ### 1. Change Default Ports (Optional)
 
@@ -356,7 +356,7 @@ DEBUG = os.getenv('FLASK_ENV') != 'production'
 
 ---
 
-## 📊 Monitoring & Logging
+## Monitoring & Logging
 
 ### 1. Setup Logging
 
@@ -423,7 +423,7 @@ crontab -e
 
 ---
 
-## 🔄 Update Deployment
+## Update Deployment
 
 ### Rolling Update Process
 
@@ -459,7 +459,7 @@ curl http://localhost:5000/
 
 ---
 
-## 🐳 Docker Deployment (Alternative)
+## Docker Deployment (Alternative)
 
 ### Dockerfile (Backend)
 
@@ -541,7 +541,7 @@ docker-compose restart
 
 ---
 
-## 🧪 Post-Deployment Testing
+## Post-Deployment Testing
 
 ### 1. Smoke Tests
 
@@ -578,7 +578,7 @@ Use tools like:
 
 ---
 
-## 📞 Support & Troubleshooting
+## Support & Troubleshooting
 
 ### Common Issues
 
@@ -618,7 +618,7 @@ wscat -c ws://your-server-ip:5000/socket.io/
 
 ---
 
-## 📋 Rollback Plan
+## Rollback Plan
 
 ```bash
 # 1. Checkout previous version
@@ -637,30 +637,6 @@ sudo systemctl reload nginx
 ```
 
 ---
+ 
+**Maintained By:** [Daffa Afaf Firmansyah]
 
-## 📝 Deployment Checklist
-
-- [ ] Server meets minimum requirements
-- [ ] Python virtual environment created
-- [ ] Dependencies installed
-- [ ] Model files downloaded and extracted
-- [ ] Environment variables configured
-- [ ] Backend running and accessible
-- [ ] Frontend built and deployed
-- [ ] Nginx/Web server configured
-- [ ] SSL certificate installed (production)
-- [ ] Firewall rules configured
-- [ ] Logging configured
-- [ ] Monitoring setup
-- [ ] Health checks passing
-- [ ] Load testing completed
-- [ ] Documentation updated
-- [ ] Team trained on deployment
-
----
-
-**Deployment Version:** 2.0  
-**Last Updated:** 2026-01-28  
-**Maintained By:** [Nama Mahasiswa Magang]
-
-For production support: [email support]
