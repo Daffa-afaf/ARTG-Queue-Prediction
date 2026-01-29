@@ -251,20 +251,6 @@ graph LR
     style D fill:#FF6B6B
 ```
 
-**Key Point**: Both modes use the **identical Stacking Ensemble model** with 45 features. The only difference is the input source (manual vs automatic).
-
-### Batch Mode
-- **Purpose**: Manual truck entry for validation and offline testing
-- **Input**: Form (block, slot, row, tier, job type, container size, status)
-- **Use Case**: Compare predictions with historical data without company WiFi
-- **Benefit**: Test model accuracy anytime, anywhere
-
-### Real-Time Mode
-- **Purpose**: Automatic processing from company database
-- **Input**: WebSocket stream from 10.130.0.176 (GATE_IN events)
-- **Use Case**: Live queue monitoring in production environment
-- **Benefit**: Automatic predictions for every truck entering terminal
-
 ---
 
 ## Model Comparison During Training
