@@ -4,18 +4,6 @@ Panduan lengkap untuk deploy ARTG Queue Prediction System ke production environm
 
 ---
 
-## Pre-Deployment Checklist
-
-- [ ] Model files sudah di-train dan di-test
-- [ ] All tests passing (backend & frontend)
-- [ ] Environment variables configured
-- [ ] Production URLs updated
-- [ ] Database backup (jika ada)
-- [ ] SSL certificates ready
-- [ ] Firewall rules configured
-
----
-
 ## Server Requirements
 
 ### Minimum Specifications
